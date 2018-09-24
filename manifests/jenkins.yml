@@ -37,7 +37,7 @@ spec:
   selector:
     app: jenkins
     tier: jenkins
-  type: NodePort
+  type: LoadBalancer
 ---
 apiVersion: extensions/v1beta1
 kind: Deployment
@@ -55,7 +55,7 @@ spec:
         tier: jenkins
     spec:
       containers:
-      - image: chadmoon/jenkins-docker-kubectl:latest
+      - image: jenkins/jenkins:lts
         name: jenkins
         securityContext:
           privileged: true
