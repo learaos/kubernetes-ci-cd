@@ -14,6 +14,8 @@ node {
 
     stage "Build"
 
+	sh "uname -a"
+
 	sh "$(aws ecr get-login --no-include-email --region us-west-2)"
     
         sh "docker build -t ${imageName} -f applications/hello-kenzan/Dockerfile applications/hello-kenzan"
